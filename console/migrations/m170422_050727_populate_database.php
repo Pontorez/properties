@@ -1,6 +1,6 @@
 <?php
 
-use common\models\Object;
+use common\models\Obj;
 use common\models\ObjectProperty;
 use common\models\ObjectsProperties;
 use common\models\ObjectType;
@@ -30,7 +30,7 @@ class m170422_050727_populate_database extends Migration
         ObjectProperty::deleteAll();
         ObjectType::deleteAll();
         ObjectsProperties::deleteAll();
-        Object::deleteAll();
+        Obj::deleteAll();
 
         // типы обьъектов:
         (new ObjectType(['id' => self::OBJ_TYPE_CRANE, 'name' => 'кран']))->save();
@@ -90,34 +90,34 @@ class m170422_050727_populate_database extends Migration
         ]))->save();
 
         // машины:
-        (new Object(['id' => 1, 'name' => 'Tesla Model X P100D', 'type_id' => self::OBJ_TYPE_CAR]))->save();
+        (new Obj(['id' => 1, 'name' => 'Tesla Model X P100D', 'type_id' => self::OBJ_TYPE_CAR]))->save();
         (new ObjectsProperties(['object_id' => 1, 'property_id' => self::PROPERTY_CAR_POWER, 'value_int' => 762]))->save();
 
-        (new Object(['id' => 2, 'name' => 'Mercedes-Benz CLS-klasse II (W218) 350', 'type_id' => self::OBJ_TYPE_CAR]))->save();
+        (new Obj(['id' => 2, 'name' => 'Mercedes-Benz CLS-klasse II (W218) 350', 'type_id' => self::OBJ_TYPE_CAR]))->save();
         (new ObjectsProperties(['object_id' => 2, 'property_id' => self::PROPERTY_CAR_POWER, 'value_int' => 306]))->save();
         (new ObjectsProperties(['object_id' => 2, 'property_id' => self::PROPERTY_CAR_POWER_IS_PASSENGER, 'value_int' => 1]))->save();
 
-        (new Object(['id' => 3, 'name' => 'Scania R-series', 'type_id' => self::OBJ_TYPE_CAR]))->save();
+        (new Obj(['id' => 3, 'name' => 'Scania R-series', 'type_id' => self::OBJ_TYPE_CAR]))->save();
         (new ObjectsProperties(['object_id' => 3, 'property_id' => self::PROPERTY_CAR_POWER, 'value_int' => 450]))->save();
         (new ObjectsProperties(['object_id' => 3, 'property_id' => self::PROPERTY_CAR_POWER_IS_PASSENGER, 'value_int' => 0]))->save();
 
         // краны:
-        (new Object(['id' => 4, 'name' => 'Komatsu', 'type_id' => self::OBJ_TYPE_CRANE]))->save();
+        (new Obj(['id' => 4, 'name' => 'Komatsu', 'type_id' => self::OBJ_TYPE_CRANE]))->save();
         (new ObjectsProperties(['object_id' => 4, 'property_id' => self::PROPERTY_CRANE_CAPACITY, 'value_int' => 8000]))->save();
         (new ObjectsProperties(['object_id' => 4, 'property_id' => self::PROPERTY_CRANE_MODEL, 'value_text' => 'LW80']))->save();
         (new ObjectsProperties(['object_id' => 4, 'property_id' => self::PROPERTY_CRANE_HEIGHT, 'value_int' => 10]))->save();
 
-        (new Object(['id' => 5, 'name' => 'Hyundai', 'type_id' => self::OBJ_TYPE_CRANE]))->save();
+        (new Obj(['id' => 5, 'name' => 'Hyundai', 'type_id' => self::OBJ_TYPE_CRANE]))->save();
         (new ObjectsProperties(['object_id' => 5, 'property_id' => self::PROPERTY_CRANE_CAPACITY, 'value_int' => 15000]))->save();
         (new ObjectsProperties(['object_id' => 5, 'property_id' => self::PROPERTY_CRANE_MODEL, 'value_text' => 'Gold']))->save();
         (new ObjectsProperties(['object_id' => 5, 'property_id' => self::PROPERTY_CRANE_HEIGHT, 'value_int' => 11]))->save();
 
         // автобусы:
-        (new Object(['id' => 6, 'name' => 'Golden Dragon', 'type_id' => self::OBJ_TYPE_BUS]))->save();
+        (new Obj(['id' => 6, 'name' => 'Golden Dragon', 'type_id' => self::OBJ_TYPE_BUS]))->save();
         (new ObjectsProperties(['object_id' => 6, 'property_id' => self::PROPERTY_BUS_CAPACITY, 'value_int' => 30]))->save();
         (new ObjectsProperties(['object_id' => 6, 'property_id' => self::PROPERTY_BUS_MODEL, 'value_text' => 'XML 6126JR']))->save();
 
-        (new Object(['id' => 7, 'name' => 'Golden Dragon', 'type_id' => self::OBJ_TYPE_BUS]))->save();
+        (new Obj(['id' => 7, 'name' => 'Golden Dragon', 'type_id' => self::OBJ_TYPE_BUS]))->save();
         (new ObjectsProperties(['object_id' => 7, 'property_id' => self::PROPERTY_BUS_CAPACITY, 'value_int' => 37]))->save();
         (new ObjectsProperties(['object_id' => 7, 'property_id' => self::PROPERTY_BUS_MODEL, 'value_text' => 'XML 6125CR']))->save();
     }
@@ -125,7 +125,7 @@ class m170422_050727_populate_database extends Migration
     public function down()
     {
         ObjectsProperties::deleteAll();
-        Object::deleteAll();
+        Obj::deleteAll();
         ObjectProperty::deleteAll();
         ObjectType::deleteAll();
     }

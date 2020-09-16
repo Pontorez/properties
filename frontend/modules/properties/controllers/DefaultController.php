@@ -2,7 +2,7 @@
 
 namespace frontend\modules\properties\controllers;
 
-use common\models\Object;
+use common\models\Obj;
 use common\models\ObjectsProperties;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
@@ -19,7 +19,7 @@ class DefaultController extends Controller
     public function actionIndex()
     {
         $dataProvider = new ActiveDataProvider([
-            'query' => Object::find(),
+            'query' => Obj::find(),
             'pagination' => [
                 'pageSize' => 10,
             ],
@@ -36,7 +36,7 @@ class DefaultController extends Controller
 
     public function actionView($id)
     {
-        $model = Object::findOne($id);
+        $model = Obj::findOne($id);
         $dataProvider = new ActiveDataProvider(['query' => ObjectsProperties::find()->where(['object_id' => $model->id])]);
 
         return $this->render('object', [

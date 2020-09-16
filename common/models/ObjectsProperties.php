@@ -13,7 +13,7 @@ use Yii;
  * @property integer $value_int
  * @property string $value_text
  *
- * @property Object $object
+ * @property Obj $object
  * @property ObjectProperty $property
  */
 class ObjectsProperties extends \yii\db\ActiveRecord
@@ -35,7 +35,7 @@ class ObjectsProperties extends \yii\db\ActiveRecord
             [['object_id', 'property_id'], 'required'],
             [['object_id', 'property_id', 'value_int'], 'integer'],
             [['value_text'], 'string'],
-            [['object_id'], 'exist', 'skipOnError' => true, 'targetClass' => Object::className(), 'targetAttribute' => ['object_id' => 'id']],
+            [['object_id'], 'exist', 'skipOnError' => true, 'targetClass' => Obj::className(), 'targetAttribute' => ['object_id' => 'id']],
             [['property_id'], 'exist', 'skipOnError' => true, 'targetClass' => ObjectProperty::className(), 'targetAttribute' => ['property_id' => 'id']],
         ];
     }
@@ -59,7 +59,7 @@ class ObjectsProperties extends \yii\db\ActiveRecord
      */
     public function getObject()
     {
-        return $this->hasOne(Object::className(), ['id' => 'object_id']);
+        return $this->hasOne(Obj::className(), ['id' => 'object_id']);
     }
 
     /**

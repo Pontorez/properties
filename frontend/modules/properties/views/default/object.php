@@ -2,7 +2,7 @@
 use yii\data\ActiveDataProvider;
 use yii\grid\GridView;
 
-/** @var \common\models\Object $model */
+/** @var \common\models\Obj $model */
 
 $this->title = $model->name;
 $this->params['breadcrumbs'][] = [

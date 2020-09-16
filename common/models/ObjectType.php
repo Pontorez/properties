@@ -10,7 +10,7 @@ use Yii;
  * @property integer $id
  * @property string $name
  *
- * @property Object[] $objects
+ * @property Obj[] $objects
  * @property ObjectProperty[] $objectProperties
  */
 class ObjectType extends \yii\db\ActiveRecord
@@ -49,7 +49,7 @@ class ObjectType extends \yii\db\ActiveRecord
      */
     public function getObjects()
     {
-        return $this->hasMany(Object::className(), ['type_id' => 'id']);
+        return $this->hasMany(Obj::className(), ['type_id' => 'id']);
     }
 
     /**

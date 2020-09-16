@@ -15,7 +15,7 @@ use Yii;
  * @property ObjectType $type
  * @property ObjectsProperties[] $objectsProperties
  */
-class Object extends \yii\db\ActiveRecord
+class Obj extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
